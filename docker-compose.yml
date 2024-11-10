@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    build: . # This tells Docker Compose to look for the Dockerfile in the current director and run it
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - my-network
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: kkdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5433:5432"
+    networks:
+      - my-network
+networks:
+  my-network:
+    driver: bridge
