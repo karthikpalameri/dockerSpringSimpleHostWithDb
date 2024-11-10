@@ -22,8 +22,7 @@ public class Student {
 
     }
 
-    public Student(int i, String name, int marks) {
-        this.rollno = i;
+    public Student( String name, int marks) {
         this.name = name;
         this.marks = marks;
     }

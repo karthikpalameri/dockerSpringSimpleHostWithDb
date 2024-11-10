@@ -21,11 +21,16 @@ public class StudentController {
     public List<Student> saveStudents() {
 
         List<Student> students = List.of(
-                new Student(1, "abhi", 21), 
-                new Student(2, "bana", 22), 
-                new Student(3, "cana", 23));
+                new Student("abhi", 21),
+                new Student("bana", 22),
+                new Student("cana", 23));
         studentRepo.saveAll(students);
         return students;
     }
 
+    @RequestMapping("/addstudent")
+    public void addStudent() {
+        Student student = new Student("dane", 24);
+        studentRepo.save(student);
+    }
 }
